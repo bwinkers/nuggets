@@ -1,0 +1,17 @@
+services: 
+  proxy:
+    build:
+      context: .
+      args:
+        ENABLED_MODULES: brotli subs-filter ndk lua
+    image: nuggets-nginx:v1
+    restart: no
+    depends_on:
+      - postgres
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./dev/config/:/etc/nginx/conf.d/:ro
+      - ./dev/html/:/var/www/sites/:ro
+      - ./dev/certs/:/etc/ssl/:ro

@@ -8,8 +8,6 @@ services:
     volumes:
       - ./redis.conf:/etc/keydb/redis.conf
       - keydb_data:/data
-    networks:
-      - "${NUGGET_NETWORK}"
     expose:
       - 6379:6379
     restart: no
