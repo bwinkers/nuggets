@@ -14,11 +14,13 @@ include:
   # `ssh root@localhost -p 2222`
   # `psql -h postgres -U postgres` # Use POSTGRES_PASSWORD from .env
   - path: ./bastion/compose.yaml
+
+    # Zitadel provides auth, it is accessed through the proxy.
+  - path: ./zitadel/compose.yaml
   
   # Nginx reverse proxies container services under SSL.
   - path: ./proxy/compose.yaml
 
-  # Zitadel provides auth, it is accessed through the proxy.
-  - path: ./zitadel/compose.yaml
+
 
 

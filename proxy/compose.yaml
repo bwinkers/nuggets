@@ -7,7 +7,7 @@ services:
     image: nuggets-nginx:v1
     restart: no
     depends_on:
-      - postgres
+      - zitadel
     ports:
       - "80:80"
       - "443:443"
