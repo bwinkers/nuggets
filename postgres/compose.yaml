@@ -1,6 +1,6 @@
 services:  
   postgres:
-    container_name: nuggets-postgres 
+    #container_name: nuggets-postgres 
     command: ["postgres", "-c", "log_statement=all"]
     image: "postgres:17-alpine"
     healthcheck:

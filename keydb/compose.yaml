@@ -1,6 +1,6 @@
 services:
   keydb:
-    container_name: nuggets-keydb
+    #container_name: nuggets-keydb
     image: eqalpha/keydb:x86_64_v5.3.3
     # command: keydb-server /etc/keydb/redis.conf --server-threads 2 --active-replica yes --replicaof 192.168.1.1 6379
     # command: keydb-server /etc/keydb/redis.conf --server-threads 2 --active-replica yes --replicaof 192.168.1.2 6379

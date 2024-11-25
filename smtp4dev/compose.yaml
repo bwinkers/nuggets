@@ -1,13 +1,13 @@
 services:
   smtp4dev:
-    container_name: nuggets-smtp4dev 
+    #container_name: nuggets-smtp4dev 
     image: rnwood/smtp4dev:v3
     restart: no
     networks:
       - "${NUGGET_NETWORK}"
-    ports:
-      # Change the number before : to the port the web interface should be accessible on
-      - '5050:80'
+    # ports:
+      # # Change the number before : to the port the web interface should be accessible on
+      # - '5050:80'
       # Only expose mail ports to other containers on nuggetnet
       # # Change the number before : to the port the SMTP server should be accessible on
       # - '25:25'
@@ -15,6 +15,8 @@ services:
       # - '143:143'
     expose: 
       # Only expose mail ports to other containers on nuggetnet
+      # Change the number before : to the port the web interface should be accessible on
+      - '5050:80'
       # Change the number before : to the port the SMTP server should be accessible on
       - '25:25'
       # Change the number before : to the port the IMAP server should be accessible on
