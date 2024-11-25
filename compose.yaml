@@ -1,0 +1,9 @@
+include:
+  - path: ./postgres/compose.yaml
+  - path: ./keydb/compose.yaml
+  - path: ./rethinkdb/compose.yaml
+
+networks:
+  nuggetnet:
+    external: false
+    driver: bridge
