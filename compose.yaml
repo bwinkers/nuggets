@@ -1,7 +1,10 @@
 include:
+  # These shared services have no external dependencies.
+  # Other services on nuggetnet network can connect to them.
   - path: ./postgres/compose.yaml
   - path: ./keydb/compose.yaml
   - path: ./rethinkdb/compose.yaml
+  - path: ./smtp4dev/compose.yaml # DEVELOPMENT ONLY
 
 networks:
   nuggetnet:
