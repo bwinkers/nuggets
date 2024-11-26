@@ -1,0 +1,23 @@
+services: 
+  proxy:
+    build:
+      context: ./nginx/
+      args:
+        ENABLED_MODULES: brotli subs-filter ndk lua
+    image: nuggets-nginx:v1
+    restart: no
+    # depends_on:
+    #   - zitadel
+    networks:
+      - dataservices_nugget_data
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/config/:/etc/nginx/conf.d/:ro
+      - ./nginx/html/:/var/www/sites/:ro
+      - ./nginx/certs/:/etc/ssl/:ro
+
+networks:
+  dataservices_nugget_data:
+    external: true

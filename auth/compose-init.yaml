@@ -1,0 +1,7 @@
+include:
+  # Zitadel provides auth, it is accessed through the proxy.
+  - path: ./zitadel/compose-init.yaml
+
+networks:
+  dataservices_nugget_data:
+    external: true

@@ -1,0 +1,12 @@
+services:
+  bastion:
+    build: .  # Use the current directory as the build context
+    image: nugget-bastion:latest 
+    networks:
+      - nugget_data
+    ports:
+      - "${BASTION_SSH_PORT}:22"
+
+#  Connect example: 
+# `ssh root@localhost -p 2222`
+# `psql -h postgres -U postgres` # Use POSTGRES_PASSWORD from .env

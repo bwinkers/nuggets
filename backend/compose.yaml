@@ -1,0 +1,26 @@
+include:
+  # These shared services have no external dependencies.
+  # Other services on nuggetnet network can connect to them.
+  # These only expose ports to other containers.
+  # They do not publish ports them to the host.
+  # Access through the proxy or bastion.
+  - path: ./postgres/compose.yaml
+  - path: ./keydb/compose.yaml
+  - path: ./rethinkdb/compose.yaml
+  - path: ./smtp4dev/compose.yaml # DEVELOPMENT ONLY
+
+  # Zitadel provides auth, it is accessed through the proxy.
+  - path: ./zitadel/compose.yaml
+  
+  # Nginx reverse proxies container services under SSL.
+  - path: ./proxy/compose.yaml
+  
+  # The bastion publishes SSH under the BASTION_SSH_PORT env variable.
+  # Connect example: 
+  # `ssh root@localhost -p 2222`
+  # `psql -h postgres -U postgres` # Use POSTGRES_PASSWORD from .env
+  - path: ./bastion/compose.yaml
+
+
+
+

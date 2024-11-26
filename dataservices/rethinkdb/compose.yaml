@@ -1,0 +1,16 @@
+services:
+  rethinkdb:
+    image: rethinkdb:latest
+    networks:
+      - nugget_data
+    expose:
+      - "28015:28015"
+      - "8181:8080"
+    volumes:
+      - rethinkdb_data:/data
+    command: rethinkdb --bind all --cache-size 2048
+
+volumes:
+  rethinkdb_data:
+
+
